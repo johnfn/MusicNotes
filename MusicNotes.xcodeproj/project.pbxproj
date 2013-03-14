@@ -19,6 +19,11 @@
 		8BB691A216F284D9002B4818 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB691A016F284D9002B4818 /* MainStoryboard_iPhone.storyboard */; };
 		8BB691A516F284D9002B4818 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB691A316F284D9002B4818 /* MainStoryboard_iPad.storyboard */; };
 		8BB691A816F284D9002B4818 /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691A716F284D9002B4818 /* NotesViewController.m */; };
+		8BB691B016F2882D002B4818 /* SequencerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691AF16F2882D002B4818 /* SequencerViewController.m */; };
+		8BB691B316F2884F002B4818 /* SequencerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691B216F2884F002B4818 /* SequencerView.m */; };
+		8BB691B616F28BFA002B4818 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691B516F28BFA002B4818 /* RootTabViewController.m */; };
+		8BB691BA16F29339002B4818 /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691B916F29339002B4818 /* Sequence.m */; };
+		8BB691BD16F29813002B4818 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691BC16F29813002B4818 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,16 @@
 		8BB691A416F284D9002B4818 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		8BB691A616F284D9002B4818 /* NotesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesViewController.h; sourceTree = "<group>"; };
 		8BB691A716F284D9002B4818 /* NotesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesViewController.m; sourceTree = "<group>"; };
+		8BB691AE16F2882D002B4818 /* SequencerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerViewController.h; sourceTree = "<group>"; };
+		8BB691AF16F2882D002B4818 /* SequencerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerViewController.m; sourceTree = "<group>"; };
+		8BB691B116F2884F002B4818 /* SequencerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerView.h; sourceTree = "<group>"; };
+		8BB691B216F2884F002B4818 /* SequencerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerView.m; sourceTree = "<group>"; };
+		8BB691B416F28BFA002B4818 /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
+		8BB691B516F28BFA002B4818 /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
+		8BB691B816F29339002B4818 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
+		8BB691B916F29339002B4818 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
+		8BB691BB16F29813002B4818 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		8BB691BC16F29813002B4818 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +100,16 @@
 		8BB6918E16F284D9002B4818 /* MusicNotes */ = {
 			isa = PBXGroup;
 			children = (
+				8BB691B716F292DE002B4818 /* Model */,
 				8BB6919716F284D9002B4818 /* NotesAppDelegate.h */,
 				8BB6919816F284D9002B4818 /* NotesAppDelegate.m */,
 				8BB691A016F284D9002B4818 /* MainStoryboard_iPhone.storyboard */,
+				8BB691B416F28BFA002B4818 /* RootTabViewController.h */,
+				8BB691B516F28BFA002B4818 /* RootTabViewController.m */,
+				8BB691B116F2884F002B4818 /* SequencerView.h */,
+				8BB691B216F2884F002B4818 /* SequencerView.m */,
+				8BB691AE16F2882D002B4818 /* SequencerViewController.h */,
+				8BB691AF16F2882D002B4818 /* SequencerViewController.m */,
 				8BB691A316F284D9002B4818 /* MainStoryboard_iPad.storyboard */,
 				8BB691A616F284D9002B4818 /* NotesViewController.h */,
 				8BB691A716F284D9002B4818 /* NotesViewController.m */,
@@ -108,6 +130,17 @@
 				8BB6919E16F284D9002B4818 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BB691B716F292DE002B4818 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BB691B816F29339002B4818 /* Sequence.h */,
+				8BB691B916F29339002B4818 /* Sequence.m */,
+				8BB691BB16F29813002B4818 /* Note.h */,
+				8BB691BC16F29813002B4818 /* Note.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +214,11 @@
 				8BB6919516F284D9002B4818 /* main.m in Sources */,
 				8BB6919916F284D9002B4818 /* NotesAppDelegate.m in Sources */,
 				8BB691A816F284D9002B4818 /* NotesViewController.m in Sources */,
+				8BB691B016F2882D002B4818 /* SequencerViewController.m in Sources */,
+				8BB691B316F2884F002B4818 /* SequencerView.m in Sources */,
+				8BB691B616F28BFA002B4818 /* RootTabViewController.m in Sources */,
+				8BB691BA16F29339002B4818 /* Sequence.m in Sources */,
+				8BB691BD16F29813002B4818 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

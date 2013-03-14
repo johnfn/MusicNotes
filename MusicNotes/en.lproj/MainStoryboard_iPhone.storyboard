@@ -1,23 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oXf-U2-y2r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="5">
+        <!--View Controller - Item 2-->
+        <scene sceneID="JuZ-tY-kHU">
             <objects>
-                <viewController id="2" customClass="NotesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                <viewController id="4qa-Ia-IAY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLq-PU-117">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="6bx-bB-eU4"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7H-38-uqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="143" y="323"/>
+        </scene>
+        <!--Sequencer View Controller - Item 1-->
+        <scene sceneID="o30-lg-Juk">
+            <objects>
+                <viewController id="z5t-wo-bT9" customClass="SequencerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T5t-jW-WMO">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPu-a2-re0" customClass="SequencerView"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cPu-a2-re0" firstAttribute="top" secondItem="T5t-jW-WMO" secondAttribute="top" type="default" id="BNb-Oc-sfJ"/>
+                            <constraint firstItem="cPu-a2-re0" firstAttribute="leading" secondItem="T5t-jW-WMO" secondAttribute="leading" type="default" id="IkN-Sr-Xsb"/>
+                            <constraint firstItem="cPu-a2-re0" firstAttribute="trailing" secondItem="T5t-jW-WMO" secondAttribute="trailing" type="default" id="df3-JX-IEX"/>
+                            <constraint firstItem="cPu-a2-re0" firstAttribute="bottom" secondItem="T5t-jW-WMO" secondAttribute="bottom" type="default" id="tZE-6Z-Ntd"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="4NH-O4-W69"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xCm-ER-hLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="-329"/>
+        </scene>
+        <!--Root Tab View Controller-->
+        <scene sceneID="BH5-gR-XEO">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="oXf-U2-y2r" customClass="RootTabViewController" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Vug-bH-dhD">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="z5t-wo-bT9" kind="relationship" relationship="viewControllers" id="jgg-v6-LUa"/>
+                        <segue destination="4qa-Ia-IAY" kind="relationship" relationship="viewControllers" id="g7c-Q9-WCE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPa-ci-f7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="-4"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootTabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabViewController.h"/>
+        </class>
+        <class className="SequencerView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerView.h"/>
+        </class>
+        <class className="SequencerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
