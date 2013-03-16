@@ -24,6 +24,7 @@
 		8BB691B616F28BFA002B4818 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691B516F28BFA002B4818 /* RootTabViewController.m */; };
 		8BB691BA16F29339002B4818 /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691B916F29339002B4818 /* Sequence.m */; };
 		8BB691BD16F29813002B4818 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB691BC16F29813002B4818 /* Note.m */; };
+		8BEF3CB416F3F9680015C4E8 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3CB316F3F9680015C4E8 /* PianoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		8BB691B916F29339002B4818 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		8BB691BB16F29813002B4818 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		8BB691BC16F29813002B4818 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		8BEF3CB216F3F9680015C4E8 /* PianoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoViewController.h; sourceTree = "<group>"; };
+		8BEF3CB316F3F9680015C4E8 /* PianoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				8BB6919716F284D9002B4818 /* NotesAppDelegate.h */,
 				8BB6919816F284D9002B4818 /* NotesAppDelegate.m */,
 				8BB691A016F284D9002B4818 /* MainStoryboard_iPhone.storyboard */,
+				8BEF3CB216F3F9680015C4E8 /* PianoViewController.h */,
+				8BEF3CB316F3F9680015C4E8 /* PianoViewController.m */,
 				8BB691B416F28BFA002B4818 /* RootTabViewController.h */,
 				8BB691B516F28BFA002B4818 /* RootTabViewController.m */,
 				8BB691B116F2884F002B4818 /* SequencerView.h */,
@@ -219,6 +224,7 @@
 				8BB691B616F28BFA002B4818 /* RootTabViewController.m in Sources */,
 				8BB691BA16F29339002B4818 /* Sequence.m in Sources */,
 				8BB691BD16F29813002B4818 /* Note.m in Sources */,
+				8BEF3CB416F3F9680015C4E8 /* PianoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +350,7 @@
 				8BB691AD16F284D9002B4818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
