@@ -12,8 +12,7 @@
 
 @interface PianoViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
-@property (strong, nonatomic) ToneGeneratorViewController* toneGenerator;
-@property (strong, nonatomic) ToneGeneratorViewController* toneGenerator2;
+@property (strong, nonatomic) NSMutableArray* tones;
 @property (strong, nonatomic) ToneGeneratorViewController* metronomeGenerator;
 @property (nonatomic) int beatNumber;
 @end
@@ -37,20 +36,11 @@
     return _metronomeGenerator;
 }
 
-- (ToneGeneratorViewController*)toneGenerator {
-    if (!_toneGenerator) {
-        _toneGenerator = [[ToneGeneratorViewController alloc] init];
-    }
-    
-    return _toneGenerator;
-}
-
-- (ToneGeneratorViewController*)toneGenerator2 {
-    if (!_toneGenerator2) {
-        _toneGenerator2 = [[ToneGeneratorViewController alloc] init];
-    }
-    
-    return _toneGenerator2;
+- (void)pressKey:(UIButton *)sender {
+    int idx = [self.keys indexOfObject:sender];
+    ToneGeneratorViewController* tone = [self.tones objectAtIndex:idx];
+    NSLog(@"%@", tone);
+    [tone togglePlay];
 }
 
 - (IBAction)test:(UIButton *)sender {
@@ -76,7 +66,7 @@
 
 - (double)frequency:(int)semitonesFromA {
     double power = semitonesFromA/12.0;
-    double result = 440 * pow(2, power);
+    double result = 220 * pow(2, power);
     
     return result;
 }
@@ -85,8 +75,7 @@
 {
     [super viewDidAppear:animated];
     
-    NSArray *sortedArray;
-    sortedArray = [self.keys sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+    NSArray *sortedArray = [self.keys sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         CGFloat first  = [((UIButton*) a) frame].origin.y;
         CGFloat second = [((UIButton*) b) frame].origin.y;
         
@@ -97,15 +86,28 @@
         }
     }];
     
+    self.keys = sortedArray;
+    
     for (int i = 0; i < sortedArray.count; i++) {
         UIButton *btn = [sortedArray objectAtIndex:i];
         [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
+        
+        [btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     
     [self startMetronomeWithBPM:120];
     
     [self.metronomeGenerator setup:440];
+    
+    int C = 3; // C is 3 semitones from A.
+    // Create tones
+    self.tones = [[NSMutableArray alloc] init];
+    for (int i = 0; i < sortedArray.count; i++) {
+        ToneGeneratorViewController *tone = [[ToneGeneratorViewController alloc] init];
+        [tone setup:[self frequency:C + i]];
+        [self.tones addObject:tone];
+    }
     
     //[self.toneGenerator setup:220];
     //[self.toneGenerator togglePlay];
