@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
 @property (strong, nonatomic) ToneGeneratorViewController* toneGenerator;
 @property (strong, nonatomic) ToneGeneratorViewController* toneGenerator2;
+@property (strong, nonatomic) ToneGeneratorViewController* metronomeGenerator;
+@property (nonatomic) int beatNumber;
 @end
 
 @implementation PianoViewController
@@ -22,10 +24,17 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
-        // Custom initialization
+        _beatNumber = 0;
     }
     return self;
+}
+
+- (ToneGeneratorViewController*)metronomeGenerator {
+    if (!_metronomeGenerator) {
+        _metronomeGenerator = [[ToneGeneratorViewController alloc] init];
+    }
+    
+    return _metronomeGenerator;
 }
 
 - (ToneGeneratorViewController*)toneGenerator {
@@ -48,8 +57,15 @@
     NSLog(@"%f", [sender frame].origin.y);
 }
 
+- (void)finishMetronomeBeep {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.metronomeGenerator togglePlay];
+    });
+}
+
 - (void)beepMetronome:(id)unused {
-    NSLog(@"!");
+    [self.metronomeGenerator togglePlay];
+    [self performSelector:@selector(finishMetronomeBeep) withObject:nil afterDelay:.1];
 }
 
 - (void)startMetronomeWithBPM:(int)BPM {
@@ -58,6 +74,12 @@
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
+- (double)frequency:(int)semitonesFromA {
+    double power = semitonesFromA/12.0;
+    double result = 440 * pow(2, power);
+    
+    return result;
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -83,11 +105,13 @@
     
     [self startMetronomeWithBPM:120];
     
-    [self.toneGenerator setup:220];
-    [self.toneGenerator togglePlay];
+    [self.metronomeGenerator setup:440];
     
-    [self.toneGenerator2 setup:440];
-    [self.toneGenerator2 togglePlay];
+    //[self.toneGenerator setup:220];
+    //[self.toneGenerator togglePlay];
+    
+    //[self.toneGenerator2 setup:[self frequency:12]];
+    //[self.toneGenerator2 togglePlay];
     
     //[self setColorOfButtons:self.keys red:0 green:255 blue:0 alpha:1];
 	// Do any additional setup after loading the view.
