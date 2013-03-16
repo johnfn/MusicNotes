@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SequencerViewController : UIViewController
-
+@property (strong, nonatomic) NSMutableArray* noteData;
 @end

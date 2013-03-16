@@ -7,6 +7,7 @@
 //
 
 #import "PianoViewController.h"
+#import "SequencerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ToneGeneratorViewController.h"
 
@@ -14,18 +15,36 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
 @property (strong, nonatomic) NSMutableArray* tones;
 @property (strong, nonatomic) ToneGeneratorViewController* metronomeGenerator;
-@property (nonatomic) int beatNumber;
+@property (strong, nonatomic) NSMutableArray* recordedSong; // Array of tones.
+@property (nonatomic) bool startedRecording;
+@property (strong, nonatomic) NSDate* recordingStartTime;
+@property (nonatomic) int BPM;
+@property (strong, nonatomic) NSTimer* metronomeTimer;
 @end
 
 @implementation PianoViewController
+
+#define SECONDS_IN_MINUTE 60.0
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _beatNumber = 0;
+        _startedRecording = false;
     }
     return self;
+}
+
+- (int)BPM {
+    return 120;
+}
+
+- (NSMutableArray*)recordedSong {
+    if (!_recordedSong) {
+        _recordedSong = [[NSMutableArray alloc] init];
+    }
+    
+    return _recordedSong;
 }
 
 - (ToneGeneratorViewController*)metronomeGenerator {
@@ -37,11 +56,42 @@
 }
 
 - (void)pressKey:(UIButton *)sender {
+    if (!_startedRecording) {
+        self.recordingStartTime = [NSDate date];
+    }
+    _startedRecording = true;
+    
+    int toneIdx = [self.keys indexOfObject:sender];
+    ToneGeneratorViewController* tone = [self.tones objectAtIndex:toneIdx];
+    [tone togglePlay];
+    
+    double timeInterval = fabs([self.recordingStartTime timeIntervalSinceNow]);
+    int beats = round(timeInterval * (double) self.BPM / SECONDS_IN_MINUTE);
+    
+    while (self.recordedSong.count <= beats) {
+        [self.recordedSong addObject:[[NSMutableArray alloc] init]];
+    }
+    
+    NSLog(@"%@", self.recordedSong);
+    
+    NSMutableArray *arr = [self.recordedSong objectAtIndex:beats];
+    [arr addObject:[NSNumber numberWithInt:toneIdx]];
+    
+}
+
+- (void)releaseKey:(UIButton*)sender {
     int idx = [self.keys indexOfObject:sender];
     ToneGeneratorViewController* tone = [self.tones objectAtIndex:idx];
-    NSLog(@"%@", tone);
     [tone togglePlay];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    SequencerViewController *newController = (SequencerViewController*)segue.destinationViewController;
+    
+    newController.noteData = self.recordedSong;
+    [self.metronomeTimer invalidate];
+}
+
 
 - (IBAction)test:(UIButton *)sender {
     NSLog(@"%f", [sender frame].origin.y);
@@ -60,8 +110,8 @@
 
 - (void)startMetronomeWithBPM:(int)BPM {
     float perSecond = 60.0f/(float)BPM;
-    NSTimer* timer = [NSTimer timerWithTimeInterval:perSecond target:self selector:@selector(beepMetronome:) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.metronomeTimer = [NSTimer timerWithTimeInterval:perSecond target:self selector:@selector(beepMetronome:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.metronomeTimer forMode:NSRunLoopCommonModes];
 }
 
 - (double)frequency:(int)semitonesFromA {
@@ -92,11 +142,15 @@
         UIButton *btn = [sortedArray objectAtIndex:i];
         [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
         
-        [btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchDown];
+        //[btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchDragEnter];
+        [btn addTarget:self action:@selector(releaseKey:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(releaseKey:) forControlEvents:UIControlEventTouchUpOutside];
+        //[btn addTarget:self action:@selector(releaseKey:) forControlEvents:UIControlEventTouchDragExit];
     }
     
     
-    [self startMetronomeWithBPM:120];
+    [self startMetronomeWithBPM:self.BPM];
     
     [self.metronomeGenerator setup:440];
     
