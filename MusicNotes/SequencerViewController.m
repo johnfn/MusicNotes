@@ -7,8 +7,10 @@
 //
 
 #import "SequencerViewController.h"
+#import "SequencerView.h"
 
 @interface SequencerViewController ()
+@property (weak, nonatomic) IBOutlet SequencerView *scrollView;
 
 @end
 
@@ -26,7 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [self.scrollView addGestureRecognizer:singleTap];
+
 	// Do any additional setup after loading the view.
+}
+
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture {
+    CGPoint touchPoint= [gesture locationInView:self.scrollView];
+    [self.scrollView receiveTap:touchPoint];
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Sequence : NSObject
+@property (nonatomic) int numColumns;
 
+- (UIColor*)getNoteColor:(int)x y:(int)y;
+- (void)clickOnNote:(int)x y:(int)y;
 @end

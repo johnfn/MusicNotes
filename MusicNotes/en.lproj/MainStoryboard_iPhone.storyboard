@@ -38,6 +38,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="4NH-O4-W69"/>
+                    <connections>
+                        <outlet property="scrollView" destination="cPu-a2-re0" id="S2e-MJ-Bu9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCm-ER-hLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +50,7 @@
         <scene sceneID="BH5-gR-XEO">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="oXf-U2-y2r" customClass="RootTabViewController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Vug-bH-dhD">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -75,6 +78,9 @@
         </class>
         <class className="SequencerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

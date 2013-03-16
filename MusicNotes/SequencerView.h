@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SequencerView : UIScrollView
-
+- (void)receiveTap:(CGPoint)location;
 @end

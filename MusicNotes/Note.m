@@ -14,4 +14,8 @@
     return @[@"A", @"A#", @"B", @"C", @"C#", @"D", @"D#", @"E", @"F", @"F#", @"G", @"G#"];
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"%@%d", self.pitch, self.octave];
+}
+
 @end

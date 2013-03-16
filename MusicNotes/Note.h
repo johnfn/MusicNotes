@@ -15,5 +15,6 @@
 @property (nonatomic) bool willPlay;
 
 + (NSArray*)validPitches;
+- (NSString*)description;
 
 @end
