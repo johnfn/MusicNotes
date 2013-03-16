@@ -13,6 +13,7 @@
 @interface PianoViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
 @property (strong, nonatomic) ToneGeneratorViewController* toneGenerator;
+@property (strong, nonatomic) ToneGeneratorViewController* toneGenerator2;
 @end
 
 @implementation PianoViewController
@@ -33,6 +34,14 @@
     }
     
     return _toneGenerator;
+}
+
+- (ToneGeneratorViewController*)toneGenerator2 {
+    if (!_toneGenerator2) {
+        _toneGenerator2 = [[ToneGeneratorViewController alloc] init];
+    }
+    
+    return _toneGenerator2;
 }
 
 - (IBAction)test:(UIButton *)sender {
@@ -74,8 +83,11 @@
     
     [self startMetronomeWithBPM:120];
     
-    [self.toneGenerator setup];
+    [self.toneGenerator setup:220];
     [self.toneGenerator togglePlay];
+    
+    [self.toneGenerator2 setup:440];
+    [self.toneGenerator2 togglePlay];
     
     //[self setColorOfButtons:self.keys red:0 green:255 blue:0 alpha:1];
 	// Do any additional setup after loading the view.

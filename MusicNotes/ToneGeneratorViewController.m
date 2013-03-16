@@ -130,7 +130,7 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 	else
 	{
 		[self createToneUnit];
-        frequency = 440;
+        //frequency = 440;
 		
 		// Stop changing parameters on the unit
 		OSErr err = AudioUnitInitialize(toneUnit);
@@ -148,8 +148,9 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     }
 }
 
-- (void)setup {
+- (void)setup:(int)freq {
 	sampleRate = 44100;
+    frequency = freq;
 
 	OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, (__bridge void *)(self));
 	if (result == kAudioSessionNoError)

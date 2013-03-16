@@ -29,7 +29,7 @@
 }
 
 - (void)togglePlay;
-- (void)setup;
+- (void)setup:(int)freq;
 - (void)stop;
 
 @end
