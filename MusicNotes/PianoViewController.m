@@ -8,9 +8,11 @@
 
 #import "PianoViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ToneGeneratorViewController.h"
 
 @interface PianoViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
+@property (strong, nonatomic) ToneGeneratorViewController* toneGenerator;
 @end
 
 @implementation PianoViewController
@@ -25,8 +27,26 @@
     return self;
 }
 
+- (ToneGeneratorViewController*)toneGenerator {
+    if (!_toneGenerator) {
+        _toneGenerator = [[ToneGeneratorViewController alloc] init];
+    }
+    
+    return _toneGenerator;
+}
+
 - (IBAction)test:(UIButton *)sender {
     NSLog(@"%f", [sender frame].origin.y);
+}
+
+- (void)beepMetronome:(id)unused {
+    NSLog(@"!");
+}
+
+- (void)startMetronomeWithBPM:(int)BPM {
+    float perSecond = 60.0f/(float)BPM;
+    NSTimer* timer = [NSTimer timerWithTimeInterval:perSecond target:self selector:@selector(beepMetronome:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 
@@ -38,8 +58,6 @@
     sortedArray = [self.keys sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         CGFloat first  = [((UIButton*) a) frame].origin.y;
         CGFloat second = [((UIButton*) b) frame].origin.y;
-        
-        NSLog(@"%f", first);
         
         if (first > second) {
             return NSOrderedDescending;
@@ -53,6 +71,11 @@
         [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
     }
     
+    
+    [self startMetronomeWithBPM:120];
+    
+    [self.toneGenerator setup];
+    [self.toneGenerator togglePlay];
     
     //[self setColorOfButtons:self.keys red:0 green:255 blue:0 alpha:1];
 	// Do any additional setup after loading the view.
