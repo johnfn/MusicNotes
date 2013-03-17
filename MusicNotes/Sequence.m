@@ -8,9 +8,11 @@
 
 #import "Sequence.h"
 #import "Note.h"
+#import "NotePlayer.h"
 
 @interface Sequence()
 @property (strong, nonatomic) NSMutableArray* notes;
+@property (nonatomic) int sequenceWidth;
 @end
 
 @implementation Sequence
@@ -24,19 +26,41 @@
     return self;
 }
 
+- (int)sequenceWidth {
+    return _sequenceWidth;
+}
+
+- (NSMutableArray*)getAllNotesAtCol:(int)col {
+    NSMutableArray* turnedOnNotes = [[NSMutableArray alloc] init];
+    NSMutableArray* column = [self.notes objectAtIndex:col];
+    
+    for (int i = 0; i < column.count; i++) {
+        Note* n = [column objectAtIndex:i];
+        if (n.willPlay) {
+            [turnedOnNotes addObject:n];
+        }
+    }
+    
+    return turnedOnNotes;
+}
+
 - (NSMutableArray*)notes {
     if (!_notes) {
         _notes = [[NSMutableArray alloc] init];
-        int octave = 2;
         for (int col = 0; col < self.numColumns; col++) {
             NSMutableArray* currentColumn = [[NSMutableArray alloc] init];
+            int semitoneDistance = 0;
             for (NSString* pitch in [Note validPitches]) {
                 Note* note = [[Note alloc] init];
-                note.pitch = pitch;
-                note.octave = octave;
+                note.frequency = [NotePlayer frequency:semitoneDistance];
                 note.willPlay = false;
                 
                 [currentColumn addObject:note];
+                
+                // sequenceWidth will eventually have the x of the rightmost col with
+                // a note in it.
+                _sequenceWidth = col;
+                semitoneDistance++;
             }
             
             [_notes addObject:currentColumn];
@@ -71,10 +95,7 @@
 
 
 - (UIColor*)getNoteColor:(int)x y:(int)y {
-    NSLog(@"%d %d", x, y);
-    
     if (![self inBounds:x y:y]) {
-        NSLog(@"Out of bounds!");
         return [UIColor blackColor];
     }
     

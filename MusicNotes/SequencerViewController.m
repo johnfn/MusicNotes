@@ -33,6 +33,10 @@
     [self.scrollView loadData:self.noteData];
 }
 
+- (IBAction)rotationAction:(UIRotationGestureRecognizer *)sender {
+    [self.scrollView play];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     

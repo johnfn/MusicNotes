@@ -15,7 +15,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@%d", self.pitch, self.octave];
+    return [NSString stringWithFormat:@"Note: %d", self.frequency];
 }
 
 @end

@@ -11,7 +11,9 @@
 @interface Sequence : NSObject
 @property (nonatomic) int numColumns;
 
+- (int)sequenceWidth;
 - (UIColor*)getNoteColor:(int)x y:(int)y;
+- (NSMutableArray*)getAllNotesAtCol:(int)col;
 - (void)clickOnNote:(int)x y:(int)y;
 - (void)turnOnNote:(int)x y:(int)y;
 @end

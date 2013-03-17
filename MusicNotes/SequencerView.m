@@ -8,6 +8,8 @@
 
 #import "SequencerView.h"
 #import "Sequence.h"
+#import "Note.h"
+#import "NotePlayer.h"
 
 @interface SequencerView()
 @property (strong, nonatomic) Sequence *sequence;
@@ -15,9 +17,14 @@
 @property (nonatomic) int noteHeight;
 @property (nonatomic) int notesWide;
 @property (nonatomic) int notesHigh;
+
+@property (nonatomic) bool isPlaying;
+@property (nonatomic) int playbackBar;
+@property (nonatomic, strong) NSTimer* playbackTimer;
 @end
 
 @implementation SequencerView
+#define SECONDS_IN_MINUTE 60.0
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,6 +41,66 @@
 
 - (int)notesHigh {
     return 13;
+}
+
+- (bool)isPlaying {
+    return _isPlaying;
+}
+
+- (int)playbackBar {
+    return _playbackBar;
+}
+
+- (int)BPM {
+    return 120;
+}
+
+- (void)playSingleBar {
+    // TODO: should also stop playing the previous notes.
+    
+    NSLog(@"GO!");
+    if (self.playbackBar > 0) {
+        int lastBar = self.playbackBar - 1;
+        NSMutableArray* lastNotes = [self.sequence getAllNotesAtCol:lastBar];
+        
+        for (Note* note in lastNotes) {
+            [NotePlayer playFrequency:note.frequency];
+        }
+    }
+    
+    NSMutableArray* notes = [self.sequence getAllNotesAtCol:self.playbackBar];
+    
+    for (Note* note in notes) {
+        [NotePlayer playFrequency:note.frequency];
+    }
+    
+    self.playbackBar++;
+    
+    if (self.playbackBar > self.sequence.sequenceWidth) {
+        [self.playbackTimer invalidate];
+        [self reset];
+    }
+
+}
+
+- (void)play {
+    NSLog(@"0");
+    if (!self.isPlaying) {
+        NSLog(@"1");
+        self.isPlaying = true;
+        self.playbackBar = 0;
+        
+        self.playbackTimer = [NSTimer scheduledTimerWithTimeInterval:SECONDS_IN_MINUTE / self.BPM
+                                         target:self
+                                       selector:@selector(playSingleBar)
+                                       userInfo:nil
+                                        repeats:YES];
+    }
+}
+
+- (void)reset {
+    self.isPlaying = false;
+    self.playbackBar = 0;
 }
 
 - (int)noteWidth {
@@ -116,7 +183,6 @@
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     CGContextSetLineWidth(context, 1.0);
     CGContextStrokeRect(context, strokeRect);
-
 }
 
 @end

@@ -10,8 +10,7 @@
 
 @interface Note : NSObject
 
-@property (nonatomic) int octave;
-@property (strong, nonatomic) NSString *pitch;
+@property (nonatomic) int frequency;
 @property (nonatomic) bool willPlay;
 
 + (NSArray*)validPitches;

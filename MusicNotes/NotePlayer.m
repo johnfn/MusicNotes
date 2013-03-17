@@ -42,4 +42,12 @@
     ToneGeneratorViewController* tg = [dict objectForKey:[NSNumber numberWithDouble:frequency]];
     [tg stop];
 }
+
++ (double)frequency:(int)semitonesFromC {
+    double power = (semitonesFromC + 3)/12.0;
+    double result = 220 * pow(2, power);
+    
+    return result;
+}
+
 @end

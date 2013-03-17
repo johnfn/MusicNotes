@@ -11,4 +11,7 @@
 @interface SequencerView : UIScrollView
 - (void)receiveTap:(CGPoint)location;
 - (void)loadData:(NSMutableArray*)data;
+
+- (void)play;
+- (void)reset;
 @end

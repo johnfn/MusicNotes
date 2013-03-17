@@ -11,4 +11,5 @@
 @interface NotePlayer : NSObject
 + (void)playFrequency:(double)frequency;
 + (void)stopFrequency:(double)frequency;
++ (double)frequency:(int)semitonesFromC;
 @end

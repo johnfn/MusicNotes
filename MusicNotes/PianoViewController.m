@@ -66,7 +66,7 @@
     
     int toneIdx = [self.keys indexOfObject:sender];
     
-    [NotePlayer playFrequency:[self frequency:C + toneIdx]];
+    [NotePlayer playFrequency:[NotePlayer frequency:toneIdx]];
     
     double timeInterval = fabs([self.recordingStartTime timeIntervalSinceNow]);
     int beats = round(timeInterval * (double) self.BPM / SECONDS_IN_MINUTE);
@@ -83,7 +83,7 @@
 
 - (void)releaseKey:(UIButton*)sender {
     int toneIdx = [self.keys indexOfObject:sender];
-    [NotePlayer stopFrequency:[self frequency:C + toneIdx]];
+    [NotePlayer stopFrequency:[NotePlayer frequency:toneIdx]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -113,13 +113,6 @@
     float perSecond = 60.0f/(float)BPM;
     self.metronomeTimer = [NSTimer timerWithTimeInterval:perSecond target:self selector:@selector(beepMetronome:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.metronomeTimer forMode:NSRunLoopCommonModes];
-}
-
-- (double)frequency:(int)semitonesFromA {
-    double power = semitonesFromA/12.0;
-    double result = 220 * pow(2, power);
-    
-    return result;
 }
 
 - (void)viewDidAppear:(BOOL)animated
