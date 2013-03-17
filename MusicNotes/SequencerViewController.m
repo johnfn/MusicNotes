@@ -8,6 +8,8 @@
 
 #import "SequencerViewController.h"
 #import "SequencerView.h"
+#import "Song+Extension.h"
+#import "DocumentManager.h"
 
 @interface SequencerViewController ()
 @property (weak, nonatomic) IBOutlet SequencerView *scrollView;
@@ -39,9 +41,6 @@
 
 - (IBAction)saveButton:(UIButton *)sender {
     [self.scrollView save];
-}
-
-- (IBAction)loadButton:(UIButton *)sender {
 }
 
 - (void)viewDidAppear:(BOOL)animated

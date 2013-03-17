@@ -14,6 +14,7 @@
 		8B88CC7816F657EC004C2E9B /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7716F657EC004C2E9B /* Song.m */; };
 		8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */; };
 		8B88CC8016F65D16004C2E9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B88CC7F16F65D16004C2E9B /* CoreData.framework */; };
+		8B88CC8316F661F0004C2E9B /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC8216F661F0004C2E9B /* LoadViewController.m */; };
 		8BB6918916F284D9002B4818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918816F284D9002B4818 /* UIKit.framework */; };
 		8BB6918B16F284D9002B4818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918A16F284D9002B4818 /* Foundation.framework */; };
 		8BB6918D16F284D9002B4818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918C16F284D9002B4818 /* CoreGraphics.framework */; };
@@ -50,6 +51,8 @@
 		8B88CC7C16F658EF004C2E9B /* CoreNote+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreNote+Extension.h"; sourceTree = "<group>"; };
 		8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreNote+Extension.m"; sourceTree = "<group>"; };
 		8B88CC7F16F65D16004C2E9B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8B88CC8116F661F0004C2E9B /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		8B88CC8216F661F0004C2E9B /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
 		8BB6918416F284D9002B4818 /* MusicNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB6918816F284D9002B4818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB6918A16F284D9002B4818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				8BB6919716F284D9002B4818 /* NotesAppDelegate.h */,
 				8BB6919816F284D9002B4818 /* NotesAppDelegate.m */,
 				8BB691A016F284D9002B4818 /* MainStoryboard_iPhone.storyboard */,
+				8B88CC8116F661F0004C2E9B /* LoadViewController.h */,
+				8B88CC8216F661F0004C2E9B /* LoadViewController.m */,
 				8B88CC7316F65507004C2E9B /* Song+Extension.h */,
 				8B88CC7416F65507004C2E9B /* Song+Extension.m */,
 				8B88CC6616F652D1004C2E9B /* DocumentManager.h */,
@@ -287,6 +292,7 @@
 				8B88CC7516F65507004C2E9B /* Song+Extension.m in Sources */,
 				8B88CC7816F657EC004C2E9B /* Song.m in Sources */,
 				8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */,
+				8B88CC8316F661F0004C2E9B /* LoadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

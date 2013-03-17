@@ -327,6 +327,47 @@
             </objects>
             <point key="canvasLocation" x="-17" y="222"/>
         </scene>
+        <!--Load View Controller-->
+        <scene sceneID="coQ-ii-GWo">
+            <objects>
+                <tableViewController id="HJP-Lt-kSv" customClass="LoadViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QcJ-xw-Esq">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="SaveCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SaveCell" textLabel="P5H-mi-NRB" detailTextLabel="hlx-im-X2d" style="IBUITableViewCellStyleSubtitle" id="go3-ce-Np9">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5H-mi-NRB">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-im-X2d">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HJP-Lt-kSv" id="xW1-Kl-PgV"/>
+                            <outlet property="delegate" destination="HJP-Lt-kSv" id="oE0-aQ-7qG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyg-KS-V5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005" y="-221"/>
+        </scene>
         <!--Sequencer View Controller - Item 1-->
         <scene sceneID="o30-lg-Juk">
             <objects>
@@ -373,7 +414,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loadButton:" destination="z5t-wo-bT9" eventType="touchUpInside" id="uMu-Y1-OrI"/>
+                                            <segue destination="HJP-Lt-kSv" kind="modal" id="nfY-ij-LsF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -439,6 +480,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="LoadViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadViewController.h"/>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
@@ -458,7 +502,6 @@
         <class className="SequencerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="loadButton:" candidateClass="UIButton"/>
                 <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
                 <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
