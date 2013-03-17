@@ -8,6 +8,7 @@
 
 #import "NotePlayer.h"
 #import "ToneGeneratorViewController.h"
+#import "math.h"
 
 @interface NotePlayer()
 @property NSMutableDictionary* frequenciesToNotes;
@@ -48,6 +49,11 @@
     double result = 220 * pow(2, power);
     
     return result;
+}
+
++ (int)semitonesFromC:(double)frequency {
+    double result = 12.0 * log2(frequency / 220.0) - 3;
+    return round(result); // :x
 }
 
 @end

@@ -12,4 +12,5 @@
 + (void)playFrequency:(double)frequency;
 + (void)stopFrequency:(double)frequency;
 + (double)frequency:(int)semitonesFromC;
++ (int)semitonesFromC:(double)frequency;
 @end

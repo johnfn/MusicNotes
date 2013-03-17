@@ -356,6 +356,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="z5t-wo-bT9" kind="modal" id="y3S-Ij-wee"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -366,7 +369,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyg-KS-V5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005" y="-221"/>
+            <point key="canvasLocation" x="953" y="-215"/>
         </scene>
         <!--Sequencer View Controller - Item 1-->
         <scene sceneID="o30-lg-Juk">
@@ -479,41 +482,12 @@
             <point key="canvasLocation" x="-443" y="-102"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LoadViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PianoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PianoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="test:" candidateClass="UIButton"/>
-                <relationship kind="outletCollection" name="keys" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="RootTabViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabViewController.h"/>
-        </class>
-        <class className="SequencerView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerView.h"/>
-        </class>
-        <class className="SequencerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
-                <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7pL-hK-F5w"/>
+        <segue reference="y3S-Ij-wee"/>
     </inferredMetricsTieBreakers>
 </document>

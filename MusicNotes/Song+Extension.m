@@ -9,6 +9,7 @@
 #import "Song+Extension.h"
 #import "CoreNote+Extension.h"
 #import "Note.h"
+#import "NotePlayer.h"
 
 @implementation Song (Extension)
 
@@ -39,8 +40,20 @@
     return songs;
 }
 
-+ (void)loadSequence:(UIManagedDocument *)document which:(int)which {
-    NSLog(@"TODO");
+- (NSMutableArray*)toNoteData {
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+
+    for (CoreNote* note in self.notes) {
+        while (result.count <= [note.column intValue]) {
+            [result addObject:[[NSMutableArray alloc] init]];
+        }
+
+        NSMutableArray *col = [result objectAtIndex:[note.column intValue]];
+        NSNumber *number = [NSNumber numberWithInt:[NotePlayer semitonesFromC:[note.frequency intValue]]];
+        [col addObject:number];
+    }
+
+    return result;
 }
 
 @end

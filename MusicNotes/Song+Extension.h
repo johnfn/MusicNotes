@@ -13,6 +13,7 @@
 
 + (void)saveSequence:(UIManagedDocument*)document seq:(Sequence*)sequence;
 + (NSArray*)allSongs:(UIManagedDocument*)document;
-+ (void)loadSequence:(UIManagedDocument*)document which:(int)which;
+
+- (NSMutableArray*)toNoteData;
 
 @end

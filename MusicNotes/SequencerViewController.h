@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Song+Extension.h"
 
 @interface SequencerViewController : UIViewController
 @property (strong, nonatomic) NSMutableArray* noteData;
+@property (strong, nonatomic) Song* loadedSong;
 @end

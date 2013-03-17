@@ -32,7 +32,12 @@
     [super viewDidLoad];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scrollView addGestureRecognizer:singleTap];
-    [self.scrollView loadData:self.noteData];
+
+    if (self.noteData) {
+        [self.scrollView loadData:self.noteData];
+    } else {
+        [self.scrollView loadData:[self.loadedSong toNoteData]];
+    }
 }
 
 - (IBAction)rotationAction:(UIRotationGestureRecognizer *)sender {
