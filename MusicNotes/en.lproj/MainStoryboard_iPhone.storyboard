@@ -398,6 +398,8 @@
                     </view>
                     <connections>
                         <outlet property="bpmLabel" destination="BS3-dp-T5D" id="iAN-30-glN"/>
+                        <outlet property="bpmSliderObject" destination="B1f-6q-Pls" id="29y-Bx-ueZ"/>
+                        <outlet property="songName" destination="ci1-5b-IKG" id="G7f-R9-8wx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLE-Ja-MtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -609,6 +611,8 @@
                 <relationship kind="action" name="bpmSlider:" candidateClass="UISlider"/>
                 <relationship kind="action" name="changeSongTitle:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="bpmLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bpmSliderObject" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="songName" candidateClass="UITextField"/>
             </relationships>
         </class>
     </classes>

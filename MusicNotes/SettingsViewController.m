@@ -11,6 +11,8 @@
 
 @interface SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *bpmLabel;
+@property (weak, nonatomic) IBOutlet UISlider *bpmSliderObject;
+@property (weak, nonatomic) IBOutlet UITextField *songName;
 
 @end
 
@@ -32,6 +34,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.songName setText:[Settings getTitle]];
+    self.bpmSliderObject.value = [Settings getBPM];
+
+    [self bpmSlider:self.bpmSliderObject];
 }
 
 - (void)viewDidLoad
