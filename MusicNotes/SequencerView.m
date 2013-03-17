@@ -12,6 +12,7 @@
 #import "NotePlayer.h"
 #import "Song+Extension.h"
 #import "DocumentManager.h"
+#import "Settings.h"
 
 @interface SequencerView()
 @property (strong, nonatomic) Sequence *sequence;
@@ -54,7 +55,7 @@
 }
 
 - (int)BPM {
-    return 120;
+    return [Settings getBPM];
 }
 
 - (void)playSingleBar {

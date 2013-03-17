@@ -11,6 +11,7 @@
 #import "SequencerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ToneGeneratorViewController.h"
+#import "Settings.h"
 
 @interface PianoViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
@@ -39,7 +40,8 @@
 }
 
 - (int)BPM {
-    return 120;
+    NSLog(@"%d", [Settings getBPM]);
+    return [Settings getBPM];
 }
 
 - (NSMutableArray*)recordedSong {
