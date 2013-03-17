@@ -355,6 +355,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="changeSongTitle:" destination="TKJ-xs-ysm" eventType="editingDidEnd" id="iSx-UE-v7A"/>
+                                    <outlet property="delegate" destination="RUU-Aw-vCh" id="wfR-VR-0CU"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxF-Uk-HTX">

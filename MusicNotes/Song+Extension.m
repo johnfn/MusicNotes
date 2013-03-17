@@ -10,6 +10,7 @@
 #import "CoreNote+Extension.h"
 #import "Note.h"
 #import "NotePlayer.h"
+#import "Settings.h"
 
 @implementation Song (Extension)
 
@@ -17,7 +18,7 @@
     NSManagedObjectContext *context = document.managedObjectContext;
     Song* newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
 
-    newSong.title = @"HerpDerpSong";
+    newSong.title = [Settings getTitle];
     newSong.modified = [NSDate date];
 
     NSMutableArray* notes = [sequence getAllNotes];

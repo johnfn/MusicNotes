@@ -9,14 +9,13 @@
 #import "SettingsViewController.h"
 #import "Settings.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *bpmLabel;
 @property (weak, nonatomic) IBOutlet UISlider *bpmSliderObject;
 @property (weak, nonatomic) IBOutlet UITextField *songName;
-
 @end
 
-@implementation SettingsViewController
+@implementation SettingsViewController 
 
 - (IBAction)bpmSlider:(UISlider *)sender {
     [self.bpmLabel setText:[NSString stringWithFormat:@"BPM: %d", (int) sender.value]];
@@ -36,6 +35,11 @@
     return self;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.songName resignFirstResponder];
+    return NO;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.songName setText:[Settings getTitle]];
     self.bpmSliderObject.value = [Settings getBPM];
@@ -46,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.songName.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
