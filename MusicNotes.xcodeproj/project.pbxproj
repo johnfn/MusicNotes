@@ -15,6 +15,7 @@
 		8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */; };
 		8B88CC8016F65D16004C2E9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B88CC7F16F65D16004C2E9B /* CoreData.framework */; };
 		8B88CC8316F661F0004C2E9B /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC8216F661F0004C2E9B /* LoadViewController.m */; };
+		8BADCEF216F6741F000C88BF /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADCEF116F6741F000C88BF /* Settings.m */; };
 		8BB6918916F284D9002B4818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918816F284D9002B4818 /* UIKit.framework */; };
 		8BB6918B16F284D9002B4818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918A16F284D9002B4818 /* Foundation.framework */; };
 		8BB6918D16F284D9002B4818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918C16F284D9002B4818 /* CoreGraphics.framework */; };
@@ -53,6 +54,8 @@
 		8B88CC7F16F65D16004C2E9B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8B88CC8116F661F0004C2E9B /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
 		8B88CC8216F661F0004C2E9B /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
+		8BADCEF016F6741F000C88BF /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		8BADCEF116F6741F000C88BF /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		8BB6918416F284D9002B4818 /* MusicNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB6918816F284D9002B4818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB6918A16F284D9002B4818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 		8BB6918E16F284D9002B4818 /* MusicNotes */ = {
 			isa = PBXGroup;
 			children = (
+				8BADCEF016F6741F000C88BF /* Settings.h */,
+				8BADCEF116F6741F000C88BF /* Settings.m */,
 				8B88CC7C16F658EF004C2E9B /* CoreNote+Extension.h */,
 				8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */,
 				8BEF3CB616F43B910015C4E8 /* ToneGenerator */,
@@ -293,6 +298,7 @@
 				8B88CC7816F657EC004C2E9B /* Song.m in Sources */,
 				8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */,
 				8B88CC8316F661F0004C2E9B /* LoadViewController.m in Sources */,
+				8BADCEF216F6741F000C88BF /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

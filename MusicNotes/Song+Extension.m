@@ -26,8 +26,6 @@
         CoreNote* coreNote = [CoreNote saveNote:document note:note];
         [newSong addNotesObject:coreNote];
     }
-
-    NSLog(@"%@", newSong);
 }
 
 + (NSArray*)allSongs:(UIManagedDocument *)document {

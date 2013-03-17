@@ -327,6 +327,73 @@
             </objects>
             <point key="canvasLocation" x="-17" y="222"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vfG-BL-9dn">
+            <objects>
+                <viewController id="TKJ-xs-ysm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RUU-Aw-vCh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="60" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-6q-Pls"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BPM: 120" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS3-dp-T5D">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdu-a6-O9w">
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ci1-5b-IKG">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxF-Uk-HTX">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="z5t-wo-bT9" eventType="touchUpInside" id="4Jf-ji-biX"/>
+                                    <segue destination="z5t-wo-bT9" kind="modal" id="MLS-QH-gMo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-2F-TkY">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BS3-dp-T5D" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3Xn-7A-wC4"/>
+                            <constraint firstItem="BS3-dp-T5D" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="98" id="5cB-nI-qOg"/>
+                            <constraint firstItem="ci1-5b-IKG" firstAttribute="top" secondItem="6NU-2F-TkY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AEY-Ar-zhi"/>
+                            <constraint firstAttribute="trailing" secondItem="B1f-6q-Pls" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CBh-Wo-9wj"/>
+                            <constraint firstItem="xdu-a6-O9w" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="EGh-Oc-Av0"/>
+                            <constraint firstItem="6NU-2F-TkY" firstAttribute="trailing" secondItem="BS3-dp-T5D" secondAttribute="trailing" type="default" id="MgL-Ej-k9h"/>
+                            <constraint firstAttribute="trailing" secondItem="ci1-5b-IKG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="POJ-ei-NdD"/>
+                            <constraint firstItem="KxF-Uk-HTX" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="UmE-mx-3U6"/>
+                            <constraint firstItem="ci1-5b-IKG" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VDI-oQ-KD8"/>
+                            <constraint firstItem="xdu-a6-O9w" firstAttribute="centerX" secondItem="B1f-6q-Pls" secondAttribute="centerX" type="default" id="Xtm-3a-yFd"/>
+                            <constraint firstItem="B1f-6q-Pls" firstAttribute="top" secondItem="BS3-dp-T5D" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d8b-mY-f3C"/>
+                            <constraint firstAttribute="bottom" secondItem="KxF-Uk-HTX" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="dXQ-Hm-c5p"/>
+                            <constraint firstItem="B1f-6q-Pls" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kPj-Ik-D7x"/>
+                            <constraint firstAttribute="trailing" secondItem="KxF-Uk-HTX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="poT-vJ-VBj"/>
+                            <constraint firstItem="6NU-2F-TkY" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="169" id="wJp-it-oKG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLE-Ja-MtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-481"/>
+        </scene>
         <!--Load View Controller-->
         <scene sceneID="coQ-ii-GWo">
             <objects>
@@ -369,7 +436,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyg-KS-V5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="-215"/>
+            <point key="canvasLocation" x="957" y="137"/>
         </scene>
         <!--Sequencer View Controller - Item 1-->
         <scene sceneID="o30-lg-Juk">
@@ -420,18 +487,34 @@
                                             <segue destination="HJP-Lt-kSv" kind="modal" id="nfY-ij-LsF"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFC-xl-xSs">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButton:" destination="z5t-wo-bT9" eventType="touchUpInside" id="RwF-Kx-76g"/>
+                                            <segue destination="TKJ-xs-ysm" kind="modal" id="CWc-zT-KAZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="vMW-P5-5bj" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="177" id="3Tc-2O-67i"/>
                                     <constraint firstItem="8ny-p7-99D" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7wT-Sa-K3m"/>
-                                    <constraint firstItem="vMW-P5-5bj" firstAttribute="centerX" secondItem="cPu-a2-re0" secondAttribute="centerX" type="default" id="Ayb-kt-zMY"/>
-                                    <constraint firstItem="CZH-1K-uXN" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="240" id="Hqw-1h-gkf"/>
+                                    <constraint firstItem="zFC-xl-xSs" firstAttribute="baseline" secondItem="8ny-p7-99D" secondAttribute="baseline" type="default" id="Kaf-gx-oPh"/>
+                                    <constraint firstItem="CZH-1K-uXN" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="240" id="MKx-t5-acc"/>
                                     <constraint firstAttribute="bottom" secondItem="8ny-p7-99D" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="NC9-0n-rpL"/>
-                                    <constraint firstItem="vMW-P5-5bj" firstAttribute="baseline" secondItem="CZH-1K-uXN" secondAttribute="baseline" type="default" id="OoR-03-2mY"/>
+                                    <constraint firstItem="zFC-xl-xSs" firstAttribute="baseline" secondItem="vMW-P5-5bj" secondAttribute="baseline" type="default" id="RuM-UQ-GSI"/>
+                                    <constraint firstItem="zFC-xl-xSs" firstAttribute="baseline" secondItem="CZH-1K-uXN" secondAttribute="baseline" type="default" id="VIK-Z2-x4b"/>
                                     <constraint firstAttribute="bottom" secondItem="vMW-P5-5bj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Wd3-D1-Hg2"/>
-                                    <constraint firstItem="8ny-p7-99D" firstAttribute="baseline" secondItem="vMW-P5-5bj" secondAttribute="baseline" type="default" id="cVQ-dt-Hoo"/>
+                                    <constraint firstItem="zFC-xl-xSs" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="89" id="X2G-UY-8Ah"/>
                                     <constraint firstAttribute="trailing" secondItem="CZH-1K-uXN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="evK-2A-eZu"/>
-                                    <constraint firstItem="8ny-p7-99D" firstAttribute="baseline" secondItem="CZH-1K-uXN" secondAttribute="baseline" type="default" id="ocI-Jy-JCm"/>
+                                    <constraint firstAttribute="bottom" secondItem="zFC-xl-xSs" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qAn-OL-bME"/>
                                     <constraint firstItem="8ny-p7-99D" firstAttribute="top" secondItem="cPu-a2-re0" secondAttribute="top" constant="397" id="rLk-Dl-7vf"/>
                                     <constraint firstAttribute="bottom" secondItem="CZH-1K-uXN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="wl6-fT-dd2"/>
                                 </constraints>
@@ -482,12 +565,41 @@
             <point key="canvasLocation" x="-443" y="-102"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="LoadViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PianoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PianoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="test:" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="keys" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RootTabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabViewController.h"/>
+        </class>
+        <class className="SequencerView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerView.h"/>
+        </class>
+        <class className="SequencerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
+                <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="y3S-Ij-wee"/>
+        <segue reference="MLS-QH-gMo"/>
     </inferredMetricsTieBreakers>
 </document>
