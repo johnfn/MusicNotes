@@ -345,11 +345,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdu-a6-O9w">
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ci1-5b-IKG">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -377,24 +372,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSX-6O-frm">
+                                <items>
+                                    <navigationItem title="Song Settings" id="1O4-vr-zGk"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZSX-6O-frm" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" type="default" id="0kb-Mv-cBK"/>
                             <constraint firstItem="BS3-dp-T5D" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3Xn-7A-wC4"/>
                             <constraint firstItem="BS3-dp-T5D" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="98" id="5cB-nI-qOg"/>
                             <constraint firstItem="ci1-5b-IKG" firstAttribute="top" secondItem="6NU-2F-TkY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AEY-Ar-zhi"/>
                             <constraint firstAttribute="trailing" secondItem="B1f-6q-Pls" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CBh-Wo-9wj"/>
-                            <constraint firstItem="xdu-a6-O9w" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="EGh-Oc-Av0"/>
                             <constraint firstAttribute="trailing" secondItem="ci1-5b-IKG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="POJ-ei-NdD"/>
                             <constraint firstItem="KxF-Uk-HTX" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="UmE-mx-3U6"/>
                             <constraint firstItem="ci1-5b-IKG" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VDI-oQ-KD8"/>
-                            <constraint firstItem="xdu-a6-O9w" firstAttribute="centerX" secondItem="B1f-6q-Pls" secondAttribute="centerX" type="default" id="Xtm-3a-yFd"/>
                             <constraint firstItem="ci1-5b-IKG" firstAttribute="centerY" secondItem="RUU-Aw-vCh" secondAttribute="centerY" type="default" id="aXZ-sy-TW3"/>
                             <constraint firstItem="B1f-6q-Pls" firstAttribute="top" secondItem="BS3-dp-T5D" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d8b-mY-f3C"/>
                             <constraint firstAttribute="bottom" secondItem="KxF-Uk-HTX" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="dXQ-Hm-c5p"/>
                             <constraint firstItem="B1f-6q-Pls" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kPj-Ik-D7x"/>
                             <constraint firstItem="6NU-2F-TkY" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lNi-Li-Cpo"/>
+                            <constraint firstItem="ZSX-6O-frm" firstAttribute="trailing" secondItem="RUU-Aw-vCh" secondAttribute="trailing" type="default" id="oQE-QH-aHg"/>
                             <constraint firstAttribute="trailing" secondItem="KxF-Uk-HTX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="poT-vJ-VBj"/>
+                            <constraint firstItem="ZSX-6O-frm" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" type="default" id="pwG-Si-ADp"/>
                         </constraints>
                     </view>
                     <connections>

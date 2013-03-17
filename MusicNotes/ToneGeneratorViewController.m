@@ -10,7 +10,16 @@
 //  that any redistribution (in part or whole) of source code must retain
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
-//
+
+
+/* 
+ As is obvious from the above notice, the below file has been based off of
+ pre-existing code, which can be found here: http://www.cocoawithlove.com/2010/10/ios-tone-generator-introduction-to.html
+ 
+ However, I have modified it fairly substantially (it used to be a 
+ ViewController, but now it's just a group of methods you can call to make 
+ noise). You can obviously see my exact changes by checking out the source
+ and seeing what's different. */
 
 #import "ToneGeneratorViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
@@ -130,7 +139,6 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 	else
 	{
 		[self createToneUnit];
-        //frequency = 440;
 		
 		// Stop changing parameters on the unit
 		OSErr err = AudioUnitInitialize(toneUnit);

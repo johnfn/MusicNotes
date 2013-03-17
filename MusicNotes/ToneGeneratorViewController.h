@@ -17,9 +17,6 @@
 
 @interface ToneGeneratorViewController : NSObject
 {
-	UILabel *frequencyLabel;
-	UIButton *playButton;
-	UISlider *frequencySlider;
 	AudioComponentInstance toneUnit;
 
 @public
