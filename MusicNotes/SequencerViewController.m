@@ -30,8 +30,12 @@
     [super viewDidLoad];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scrollView addGestureRecognizer:singleTap];
+    [self.scrollView loadData:self.noteData];
+}
 
-	// Do any additional setup after loading the view.
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture {

@@ -13,4 +13,5 @@
 
 - (UIColor*)getNoteColor:(int)x y:(int)y;
 - (void)clickOnNote:(int)x y:(int)y;
+- (void)turnOnNote:(int)x y:(int)y;
 @end

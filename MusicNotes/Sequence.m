@@ -59,6 +59,11 @@
     note.willPlay = !note.willPlay;
 }
 
+- (void)turnOnNote:(int)x y:(int)y {
+    Note* note = [self getNoteAt:x y:y];
+    note.willPlay = YES;
+}
+
 - (bool)inBounds:(int)x y:(int)y {
     NSMutableArray* firstCol = [self.notes objectAtIndex:0];
     return (x >= 0 && y >= 0 && x < self.notes.count && y < firstCol.count);

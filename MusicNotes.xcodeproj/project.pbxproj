@@ -27,6 +27,7 @@
 		8BEF3CB416F3F9680015C4E8 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3CB316F3F9680015C4E8 /* PianoViewController.m */; };
 		8BEF3CC016F43BBC0015C4E8 /* ToneGeneratorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3CBE16F43BBC0015C4E8 /* ToneGeneratorViewController.m */; };
 		8BEF3CC216F45B560015C4E8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEF3CC116F45B560015C4E8 /* AudioToolbox.framework */; };
+		8BEF3CC516F57A750015C4E8 /* NotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3CC416F57A750015C4E8 /* NotePlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		8BEF3CBD16F43BBC0015C4E8 /* ToneGeneratorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToneGeneratorViewController.h; sourceTree = "<group>"; };
 		8BEF3CBE16F43BBC0015C4E8 /* ToneGeneratorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToneGeneratorViewController.m; sourceTree = "<group>"; };
 		8BEF3CC116F45B560015C4E8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8BEF3CC316F57A750015C4E8 /* NotePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePlayer.h; sourceTree = "<group>"; };
+		8BEF3CC416F57A750015C4E8 /* NotePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 			children = (
 				8BEF3CBD16F43BBC0015C4E8 /* ToneGeneratorViewController.h */,
 				8BEF3CBE16F43BBC0015C4E8 /* ToneGeneratorViewController.m */,
+				8BEF3CC316F57A750015C4E8 /* NotePlayer.h */,
+				8BEF3CC416F57A750015C4E8 /* NotePlayer.m */,
 			);
 			name = ToneGenerator;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				8BB691BD16F29813002B4818 /* Note.m in Sources */,
 				8BEF3CB416F3F9680015C4E8 /* PianoViewController.m in Sources */,
 				8BEF3CC016F43BBC0015C4E8 /* ToneGeneratorViewController.m in Sources */,
+				8BEF3CC516F57A750015C4E8 /* NotePlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

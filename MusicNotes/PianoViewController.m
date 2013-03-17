@@ -7,13 +7,13 @@
 //
 
 #import "PianoViewController.h"
+#import "NotePlayer.h"
 #import "SequencerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ToneGeneratorViewController.h"
 
 @interface PianoViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
-@property (strong, nonatomic) NSMutableArray* tones;
 @property (strong, nonatomic) ToneGeneratorViewController* metronomeGenerator;
 @property (strong, nonatomic) NSMutableArray* recordedSong; // Array of tones.
 @property (nonatomic) bool startedRecording;
@@ -25,6 +25,9 @@
 @implementation PianoViewController
 
 #define SECONDS_IN_MINUTE 60.0
+
+// C is 3 semitones above A.
+#define C 3
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,8 +65,8 @@
     _startedRecording = true;
     
     int toneIdx = [self.keys indexOfObject:sender];
-    ToneGeneratorViewController* tone = [self.tones objectAtIndex:toneIdx];
-    [tone togglePlay];
+    
+    [NotePlayer playFrequency:[self frequency:C + toneIdx]];
     
     double timeInterval = fabs([self.recordingStartTime timeIntervalSinceNow]);
     int beats = round(timeInterval * (double) self.BPM / SECONDS_IN_MINUTE);
@@ -76,13 +79,11 @@
     
     NSMutableArray *arr = [self.recordedSong objectAtIndex:beats];
     [arr addObject:[NSNumber numberWithInt:toneIdx]];
-    
 }
 
 - (void)releaseKey:(UIButton*)sender {
-    int idx = [self.keys indexOfObject:sender];
-    ToneGeneratorViewController* tone = [self.tones objectAtIndex:idx];
-    [tone togglePlay];
+    int toneIdx = [self.keys indexOfObject:sender];
+    [NotePlayer stopFrequency:[self frequency:C + toneIdx]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -154,22 +155,6 @@
     
     [self.metronomeGenerator setup:440];
     
-    int C = 3; // C is 3 semitones from A.
-    // Create tones
-    self.tones = [[NSMutableArray alloc] init];
-    for (int i = 0; i < sortedArray.count; i++) {
-        ToneGeneratorViewController *tone = [[ToneGeneratorViewController alloc] init];
-        [tone setup:[self frequency:C + i]];
-        [self.tones addObject:tone];
-    }
-    
-    //[self.toneGenerator setup:220];
-    //[self.toneGenerator togglePlay];
-    
-    //[self.toneGenerator2 setup:[self frequency:12]];
-    //[self.toneGenerator2 togglePlay];
-    
-    //[self setColorOfButtons:self.keys red:0 green:255 blue:0 alpha:1];
 	// Do any additional setup after loading the view.
 }
 

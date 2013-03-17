@@ -76,6 +76,15 @@
     [self setNeedsDisplay];
 }
 
+- (void)loadData:(NSMutableArray *)data {
+    for (int i = 0; i < data.count; i++) {
+        NSMutableArray *column = [data objectAtIndex:i];
+        for (int j = 0; j < column.count; j++) {
+            int freq = [[column objectAtIndex:j] intValue];
+            [self.sequence turnOnNote:i y:freq];
+        }
+    }
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
