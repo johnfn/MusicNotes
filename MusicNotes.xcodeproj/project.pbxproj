@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B88CC6816F652D1004C2E9B /* DocumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC6716F652D1004C2E9B /* DocumentManager.m */; };
+		8B88CC6C16F6530E004C2E9B /* Songs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC6A16F6530E004C2E9B /* Songs.xcdatamodeld */; };
+		8B88CC7216F654B9004C2E9B /* CoreNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7116F654B9004C2E9B /* CoreNote.m */; };
+		8B88CC7516F65507004C2E9B /* Song+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7416F65507004C2E9B /* Song+Extension.m */; };
+		8B88CC7816F657EC004C2E9B /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7716F657EC004C2E9B /* Song.m */; };
+		8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */; };
+		8B88CC8016F65D16004C2E9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B88CC7F16F65D16004C2E9B /* CoreData.framework */; };
 		8BB6918916F284D9002B4818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918816F284D9002B4818 /* UIKit.framework */; };
 		8BB6918B16F284D9002B4818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918A16F284D9002B4818 /* Foundation.framework */; };
 		8BB6918D16F284D9002B4818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6918C16F284D9002B4818 /* CoreGraphics.framework */; };
@@ -31,6 +38,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B88CC6616F652D1004C2E9B /* DocumentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentManager.h; sourceTree = "<group>"; };
+		8B88CC6716F652D1004C2E9B /* DocumentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentManager.m; sourceTree = "<group>"; };
+		8B88CC6B16F6530E004C2E9B /* Songs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Songs.xcdatamodel; sourceTree = "<group>"; };
+		8B88CC7016F654B9004C2E9B /* CoreNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreNote.h; sourceTree = "<group>"; };
+		8B88CC7116F654B9004C2E9B /* CoreNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreNote.m; sourceTree = "<group>"; };
+		8B88CC7316F65507004C2E9B /* Song+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+Extension.h"; sourceTree = "<group>"; };
+		8B88CC7416F65507004C2E9B /* Song+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+Extension.m"; sourceTree = "<group>"; };
+		8B88CC7616F657EC004C2E9B /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		8B88CC7716F657EC004C2E9B /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		8B88CC7C16F658EF004C2E9B /* CoreNote+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreNote+Extension.h"; sourceTree = "<group>"; };
+		8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreNote+Extension.m"; sourceTree = "<group>"; };
+		8B88CC7F16F65D16004C2E9B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8BB6918416F284D9002B4818 /* MusicNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB6918816F284D9002B4818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB6918A16F284D9002B4818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B88CC8016F65D16004C2E9B /* CoreData.framework in Frameworks */,
 				8BEF3CC216F45B560015C4E8 /* AudioToolbox.framework in Frameworks */,
 				8BB6918916F284D9002B4818 /* UIKit.framework in Frameworks */,
 				8BB6918B16F284D9002B4818 /* Foundation.framework in Frameworks */,
@@ -85,6 +105,7 @@
 		8BB6917916F284D9002B4818 = {
 			isa = PBXGroup;
 			children = (
+				8B88CC7F16F65D16004C2E9B /* CoreData.framework */,
 				8BEF3CC116F45B560015C4E8 /* AudioToolbox.framework */,
 				8BB6918E16F284D9002B4818 /* MusicNotes */,
 				8BB6918716F284D9002B4818 /* Frameworks */,
@@ -113,11 +134,18 @@
 		8BB6918E16F284D9002B4818 /* MusicNotes */ = {
 			isa = PBXGroup;
 			children = (
+				8B88CC7C16F658EF004C2E9B /* CoreNote+Extension.h */,
+				8B88CC7D16F658EF004C2E9B /* CoreNote+Extension.m */,
 				8BEF3CB616F43B910015C4E8 /* ToneGenerator */,
 				8BB691B716F292DE002B4818 /* Model */,
 				8BB6919716F284D9002B4818 /* NotesAppDelegate.h */,
 				8BB6919816F284D9002B4818 /* NotesAppDelegate.m */,
 				8BB691A016F284D9002B4818 /* MainStoryboard_iPhone.storyboard */,
+				8B88CC7316F65507004C2E9B /* Song+Extension.h */,
+				8B88CC7416F65507004C2E9B /* Song+Extension.m */,
+				8B88CC6616F652D1004C2E9B /* DocumentManager.h */,
+				8B88CC6716F652D1004C2E9B /* DocumentManager.m */,
+				8B88CC6A16F6530E004C2E9B /* Songs.xcdatamodeld */,
 				8BEF3CB216F3F9680015C4E8 /* PianoViewController.h */,
 				8BEF3CB316F3F9680015C4E8 /* PianoViewController.m */,
 				8BB691B416F28BFA002B4818 /* RootTabViewController.h */,
@@ -151,6 +179,10 @@
 		8BB691B716F292DE002B4818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8B88CC7616F657EC004C2E9B /* Song.h */,
+				8B88CC7716F657EC004C2E9B /* Song.m */,
+				8B88CC7016F654B9004C2E9B /* CoreNote.h */,
+				8B88CC7116F654B9004C2E9B /* CoreNote.m */,
 				8BB691B816F29339002B4818 /* Sequence.h */,
 				8BB691B916F29339002B4818 /* Sequence.m */,
 				8BB691BB16F29813002B4818 /* Note.h */,
@@ -249,6 +281,12 @@
 				8BEF3CB416F3F9680015C4E8 /* PianoViewController.m in Sources */,
 				8BEF3CC016F43BBC0015C4E8 /* ToneGeneratorViewController.m in Sources */,
 				8BEF3CC516F57A750015C4E8 /* NotePlayer.m in Sources */,
+				8B88CC6816F652D1004C2E9B /* DocumentManager.m in Sources */,
+				8B88CC6C16F6530E004C2E9B /* Songs.xcdatamodeld in Sources */,
+				8B88CC7216F654B9004C2E9B /* CoreNote.m in Sources */,
+				8B88CC7516F65507004C2E9B /* Song+Extension.m in Sources */,
+				8B88CC7816F657EC004C2E9B /* Song.m in Sources */,
+				8B88CC7E16F658EF004C2E9B /* CoreNote+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +415,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B88CC6A16F6530E004C2E9B /* Songs.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B88CC6B16F6530E004C2E9B /* Songs.xcdatamodel */,
+			);
+			currentVersion = 8B88CC6B16F6530E004C2E9B /* Songs.xcdatamodel */;
+			path = Songs.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8BB6917B16F284D9002B4818 /* Project object */;
 }

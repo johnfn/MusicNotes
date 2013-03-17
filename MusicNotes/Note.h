@@ -13,6 +13,7 @@
 @property (nonatomic) int frequency;
 @property (nonatomic) bool willPlay;
 @property (nonatomic) bool playingNow;
+@property (nonatomic) int column;
 
 + (NSArray*)validPitches;
 - (NSString*)description;

@@ -336,7 +336,61 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPu-a2-re0" customClass="SequencerView">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ny-p7-99D">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Piano">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4qa-Ia-IAY" kind="modal" id="xIG-K9-Xc0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-P5-5bj">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButton:" destination="z5t-wo-bT9" eventType="touchUpInside" id="Z65-08-s96"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-1K-uXN">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Load">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loadButton:" destination="z5t-wo-bT9" eventType="touchUpInside" id="uMu-Y1-OrI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="8ny-p7-99D" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7wT-Sa-K3m"/>
+                                    <constraint firstItem="vMW-P5-5bj" firstAttribute="centerX" secondItem="cPu-a2-re0" secondAttribute="centerX" type="default" id="Ayb-kt-zMY"/>
+                                    <constraint firstItem="CZH-1K-uXN" firstAttribute="leading" secondItem="cPu-a2-re0" secondAttribute="leading" constant="240" id="Hqw-1h-gkf"/>
+                                    <constraint firstAttribute="bottom" secondItem="8ny-p7-99D" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="NC9-0n-rpL"/>
+                                    <constraint firstItem="vMW-P5-5bj" firstAttribute="baseline" secondItem="CZH-1K-uXN" secondAttribute="baseline" type="default" id="OoR-03-2mY"/>
+                                    <constraint firstAttribute="bottom" secondItem="vMW-P5-5bj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Wd3-D1-Hg2"/>
+                                    <constraint firstItem="8ny-p7-99D" firstAttribute="baseline" secondItem="vMW-P5-5bj" secondAttribute="baseline" type="default" id="cVQ-dt-Hoo"/>
+                                    <constraint firstAttribute="trailing" secondItem="CZH-1K-uXN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="evK-2A-eZu"/>
+                                    <constraint firstItem="8ny-p7-99D" firstAttribute="baseline" secondItem="CZH-1K-uXN" secondAttribute="baseline" type="default" id="ocI-Jy-JCm"/>
+                                    <constraint firstItem="8ny-p7-99D" firstAttribute="top" secondItem="cPu-a2-re0" secondAttribute="top" constant="397" id="rLk-Dl-7vf"/>
+                                    <constraint firstAttribute="bottom" secondItem="CZH-1K-uXN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="wl6-fT-dd2"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="6Wr-JL-N0o" appends="YES" id="slG-Ap-jD8"/>
                                 </connections>
@@ -384,6 +438,33 @@
             <point key="canvasLocation" x="-443" y="-102"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PianoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PianoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="test:" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="keys" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RootTabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabViewController.h"/>
+        </class>
+        <class className="SequencerView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerView.h"/>
+        </class>
+        <class className="SequencerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
+                <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

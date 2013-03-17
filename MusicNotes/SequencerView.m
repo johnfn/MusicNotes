@@ -10,6 +10,8 @@
 #import "Sequence.h"
 #import "Note.h"
 #import "NotePlayer.h"
+#import "Song+Extension.h"
+#import "DocumentManager.h"
 
 @interface SequencerView()
 @property (strong, nonatomic) Sequence *sequence;
@@ -83,6 +85,12 @@
     }
 
     [self setNeedsDisplay];
+}
+
+- (void)save {
+    [DocumentManager withDocumentDo:^(UIManagedDocument* document){
+        [Song saveSequence:document seq:self.sequence];
+    }];
 }
 
 - (void)play {

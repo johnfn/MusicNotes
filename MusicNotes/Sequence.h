@@ -14,6 +14,7 @@
 - (int)sequenceWidth;
 - (UIColor*)getNoteColor:(int)x y:(int)y;
 - (NSMutableArray*)getAllNotesAtCol:(int)col;
+- (NSMutableArray*)getAllNotes;
 - (void)clickOnNote:(int)x y:(int)y;
 - (void)turnOnNote:(int)x y:(int)y;
 @end

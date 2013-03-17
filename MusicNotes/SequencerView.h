@@ -14,4 +14,5 @@
 
 - (void)play;
 - (void)reset;
+- (void)save;
 @end

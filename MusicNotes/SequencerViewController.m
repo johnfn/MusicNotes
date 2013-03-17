@@ -37,6 +37,13 @@
     [self.scrollView play];
 }
 
+- (IBAction)saveButton:(UIButton *)sender {
+    [self.scrollView save];
+}
+
+- (IBAction)loadButton:(UIButton *)sender {
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     

@@ -44,6 +44,15 @@
     return turnedOnNotes;
 }
 
+- (NSMutableArray*)getAllNotes {
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    for (int i = 0; i <= self.sequenceWidth; i++) {
+        [result addObjectsFromArray:[self getAllNotesAtCol:i]];
+    }
+
+    return result;
+}
+
 - (NSMutableArray*)notes {
     if (!_notes) {
         _notes = [[NSMutableArray alloc] init];
@@ -54,6 +63,7 @@
                 Note* note = [[Note alloc] init];
                 note.frequency = [NotePlayer frequency:semitoneDistance];
                 note.willPlay = false;
+                note.column = col;
                 
                 [currentColumn addObject:note];
                 
@@ -86,6 +96,10 @@
 - (void)turnOnNote:(int)x y:(int)y {
     Note* note = [self getNoteAt:x y:y];
     note.willPlay = YES;
+
+    if (y > self.sequenceWidth) {
+        self.sequenceWidth = y;
+    }
 }
 
 - (bool)inBounds:(int)x y:(int)y {
