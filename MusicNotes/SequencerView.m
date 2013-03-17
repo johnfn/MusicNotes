@@ -57,20 +57,21 @@
 
 - (void)playSingleBar {
     // TODO: should also stop playing the previous notes.
-    
-    NSLog(@"GO!");
+
     if (self.playbackBar > 0) {
         int lastBar = self.playbackBar - 1;
         NSMutableArray* lastNotes = [self.sequence getAllNotesAtCol:lastBar];
-        
+
         for (Note* note in lastNotes) {
+            note.playingNow = false;
             [NotePlayer playFrequency:note.frequency];
         }
     }
     
     NSMutableArray* notes = [self.sequence getAllNotesAtCol:self.playbackBar];
-    
+
     for (Note* note in notes) {
+        note.playingNow = true;
         [NotePlayer playFrequency:note.frequency];
     }
     
@@ -81,12 +82,11 @@
         [self reset];
     }
 
+    [self setNeedsDisplay];
 }
 
 - (void)play {
-    NSLog(@"0");
     if (!self.isPlaying) {
-        NSLog(@"1");
         self.isPlaying = true;
         self.playbackBar = 0;
         

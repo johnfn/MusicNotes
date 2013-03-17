@@ -98,8 +98,12 @@
     if (![self inBounds:x y:y]) {
         return [UIColor blackColor];
     }
-    
+
     Note* note = [self getNoteAt:x y:y];
+    if (note.playingNow) {
+        return [UIColor redColor];
+    }
+
     if (note.willPlay) {
         return [UIColor blueColor];
     } else {
