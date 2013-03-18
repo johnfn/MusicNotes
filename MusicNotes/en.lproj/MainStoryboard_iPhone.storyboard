@@ -545,7 +545,6 @@
         <class className="PianoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PianoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="test:" candidateClass="UIButton"/>
                 <relationship kind="outletCollection" name="keys" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -555,8 +554,6 @@
         <class className="SequencerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
-                <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
             </relationships>
@@ -564,8 +561,6 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bpmSlider:" candidateClass="UISlider"/>
-                <relationship kind="action" name="changeSongTitle:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="bpmLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="bpmSliderObject" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="songName" candidateClass="UITextField"/>

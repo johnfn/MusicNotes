@@ -67,7 +67,7 @@
 
         for (Note* note in lastNotes) {
             note.playingNow = false;
-            [NotePlayer playFrequency:note.frequency];
+            [NotePlayer stopFrequency:note.frequency];
         }
 
         [self.sequence highlightCol:lastBar on:false];
