@@ -60,6 +60,7 @@
 
 - (void)playSingleBar {
     // TODO: should also stop playing the previous notes.
+    if (self.rewinding) return;
 
     if (self.playbackBar > 0) {
         int lastBar = self.playbackBar - 1;
@@ -91,10 +92,33 @@
     [self setNeedsDisplay];
 }
 
+- (bool)playing {
+    return self.isPlaying;
+}
+
 - (void)save {
     [DocumentManager withDocumentDo:^(UIManagedDocument* document){
         [Song saveSequence:document seq:self.sequence];
     }];
+}
+
+- (void)finishRewinding {
+    self.rewinding = false;
+    
+    if (self.playbackBar < 0 || self.playbackBar >= self.notesWide) {
+        self.playbackBar = 0;
+    }
+}
+
+- (void)rewind:(int)dir {
+    NSLog(@"REWIND %d", dir);
+    if (self.playbackBar + dir >= 0 && self.playbackBar + dir < self.notesWide) {
+        [self.sequence highlightCol:self.playbackBar on:false];
+        self.playbackBar += dir;
+        [self.sequence highlightCol:self.playbackBar on:true];
+
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)play {

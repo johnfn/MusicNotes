@@ -14,7 +14,6 @@
 
 @interface SequencerViewController ()
 @property (weak, nonatomic) IBOutlet SequencerView *scrollView;
-
 @end
 
 @implementation SequencerViewController
@@ -33,7 +32,33 @@
 }
 
 - (IBAction)rotationAction:(UIRotationGestureRecognizer *)sender {
-    [self.scrollView play];
+    static CGFloat gestureLength = 0.0;
+
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        gestureLength = 0.0;
+        self.scrollView.rewinding = true;
+    } else {
+        gestureLength += sender.velocity;
+
+        if (gestureLength > 10 && ![self.scrollView playing]) {
+            [self.scrollView play];
+            gestureLength -= 10;
+        }
+                                    
+        if (gestureLength < -10) {
+            gestureLength += 10;
+            [self.scrollView rewind:1];
+        }
+
+        if (gestureLength > 10) {
+            gestureLength -= 10;
+            [self.scrollView rewind:-1];
+        }
+
+        if (sender.state == UIGestureRecognizerStateEnded) {
+            [self.scrollView finishRewinding];
+        }
+    }
 }
 
 - (IBAction)saveButton:(UIButton *)sender {

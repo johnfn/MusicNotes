@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface SequencerView : UIScrollView
+@property (nonatomic) bool rewinding;
+
 - (void)receiveTap:(CGPoint)location;
 - (void)loadData:(NSMutableArray*)data;
 
+- (bool)playing;
+
+- (void)rewind:(int)dir;
+- (void)finishRewinding;
 - (void)play;
 - (void)reset;
 - (void)save;
