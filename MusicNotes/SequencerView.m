@@ -69,6 +69,8 @@
             note.playingNow = false;
             [NotePlayer playFrequency:note.frequency];
         }
+
+        [self.sequence highlightCol:lastBar on:false];
     }
     
     NSMutableArray* notes = [self.sequence getAllNotesAtCol:self.playbackBar];
@@ -77,7 +79,8 @@
         note.playingNow = true;
         [NotePlayer playFrequency:note.frequency];
     }
-    
+    [self.sequence highlightCol:self.playbackBar on:true];
+
     self.playbackBar++;
     
     if (self.playbackBar > self.sequence.sequenceWidth) {

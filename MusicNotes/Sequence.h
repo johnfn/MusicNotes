@@ -17,4 +17,6 @@
 - (NSMutableArray*)getAllNotes;
 - (void)clickOnNote:(int)x y:(int)y;
 - (void)turnOnNote:(int)x y:(int)y;
+
+- (void)highlightCol:(int)col on:(bool)highlightOn;
 @end

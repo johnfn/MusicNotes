@@ -30,6 +30,15 @@
     return _sequenceWidth;
 }
 
+- (void)highlightCol:(int)col on:(bool)highlightOn {
+    NSMutableArray* column = [self.notes objectAtIndex:col];
+
+    for (int i = 0; i < column.count; i++) {
+        Note *n = [column objectAtIndex:i];
+        n.playingNow = highlightOn;
+    }
+}
+
 - (NSMutableArray*)getAllNotesAtCol:(int)col {
     NSMutableArray* turnedOnNotes = [[NSMutableArray alloc] init];
     NSMutableArray* column = [self.notes objectAtIndex:col];
@@ -40,7 +49,7 @@
             [turnedOnNotes addObject:n];
         }
     }
-    
+
     return turnedOnNotes;
 }
 
@@ -115,7 +124,11 @@
 
     Note* note = [self getNoteAt:x y:y];
     if (note.playingNow) {
-        return [UIColor redColor];
+        if (note.willPlay) {
+            return [UIColor redColor];
+        } else {
+            return [UIColor lightGrayColor];
+        }
     }
 
     if (note.willPlay) {
