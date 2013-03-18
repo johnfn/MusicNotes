@@ -45,8 +45,8 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scrollView addGestureRecognizer:singleTap];
 
+    [self.scrollView clear];
     if (self.noteData) {
-        NSLog(@"Load note data");
         [self.scrollView loadData:self.noteData];
         self.noteData = nil;
     } else if (self.loadedSong) {

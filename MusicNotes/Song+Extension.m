@@ -50,6 +50,9 @@
         CoreNote* coreNote = [CoreNote saveNote:document note:note];
         [newSong addNotesObject:coreNote];
     }
+
+    // This is just for debugging purposes.
+    [context save:&error];
 }
 
 + (NSArray*)allSongs:(UIManagedDocument *)document {

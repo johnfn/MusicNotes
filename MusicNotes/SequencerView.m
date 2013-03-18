@@ -143,6 +143,10 @@
     return _sequence;
 }
 
+- (void)clear {
+    _sequence = nil;
+}
+
 - (void)receiveTap:(CGPoint)location {
     // Convert location into relative coordinates.
     int noteX = location.x / self.noteWidth;

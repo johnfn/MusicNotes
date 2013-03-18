@@ -15,4 +15,5 @@
 - (void)play;
 - (void)reset;
 - (void)save;
+- (void)clear;
 @end
