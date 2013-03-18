@@ -68,7 +68,7 @@
         for (int col = 0; col < self.numColumns; col++) {
             NSMutableArray* currentColumn = [[NSMutableArray alloc] init];
             int semitoneDistance = 0;
-            for (NSString* pitch in [Note validPitches]) {
+            for (int pitch = 0; pitch < 25; pitch++) {
                 Note* note = [[Note alloc] init];
                 note.frequency = [NotePlayer frequency:semitoneDistance];
                 note.willPlay = false;
@@ -115,7 +115,6 @@
     NSMutableArray* firstCol = [self.notes objectAtIndex:0];
     return (x >= 0 && y >= 0 && x < self.notes.count && y < firstCol.count);
 }
-
 
 - (UIColor*)getNoteColor:(int)x y:(int)y {
     if (![self inBounds:x y:y]) {

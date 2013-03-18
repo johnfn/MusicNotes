@@ -43,7 +43,7 @@
 }
 
 - (int)notesHigh {
-    return 13;
+    return 15;
 }
 
 - (bool)isPlaying {
@@ -59,7 +59,6 @@
 }
 
 - (void)playSingleBar {
-    // TODO: should also stop playing the previous notes.
     if (self.rewinding) return;
 
     if (self.playbackBar > 0) {
@@ -111,7 +110,6 @@
 }
 
 - (void)rewind:(int)dir {
-    NSLog(@"REWIND %d", dir);
     if (self.playbackBar + dir >= 0 && self.playbackBar + dir < self.notesWide) {
         [self.sequence highlightCol:self.playbackBar on:false];
         self.playbackBar += dir;
@@ -152,8 +150,8 @@
 
 - (int)noteHeight {
     if (!_noteHeight) {
-        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        CGFloat noteHeight = width / self.notesHigh;
+        CGFloat height = [UIScreen mainScreen].bounds.size.width - 50;
+        CGFloat noteHeight = height / self.notesHigh;
         
         _noteHeight = noteHeight;
     }
@@ -199,6 +197,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    NSLog(@"%d", self.notesHigh);
+    
     for (int i = 0; i < self.notesWide; i++) {
         for (int j = 0; j < self.notesHigh; j++) {
             int noteX = i * self.noteWidth;
