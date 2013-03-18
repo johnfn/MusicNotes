@@ -29,15 +29,6 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
-    [self.scrollView addGestureRecognizer:singleTap];
-
-    if (self.noteData) {
-        [self.scrollView loadData:self.noteData];
-    } else {
-        [self.scrollView loadData:[self.loadedSong toNoteData]];
-    }
 }
 
 - (IBAction)rotationAction:(UIRotationGestureRecognizer *)sender {
@@ -48,9 +39,20 @@
     [self.scrollView save];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidLoad];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [self.scrollView addGestureRecognizer:singleTap];
+
+    if (self.noteData) {
+        NSLog(@"Load note data");
+        [self.scrollView loadData:self.noteData];
+        self.noteData = nil;
+    } else {
+        NSLog(@"Load file data");
+        [self.scrollView loadData:[self.loadedSong toNoteData]];
+        self.loadedSong = nil;
+    }
 }
 
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture {

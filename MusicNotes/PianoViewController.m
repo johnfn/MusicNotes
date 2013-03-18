@@ -40,7 +40,6 @@
 }
 
 - (int)BPM {
-    NSLog(@"%d", [Settings getBPM]);
     return [Settings getBPM];
 }
 
@@ -144,13 +143,14 @@
         [btn addTarget:self action:@selector(releaseKey:) forControlEvents:UIControlEventTouchUpOutside];
         //[btn addTarget:self action:@selector(releaseKey:) forControlEvents:UIControlEventTouchDragExit];
     }
-    
+
+    _startedRecording = false;
+    _recordedSong = nil;
+    _recordingStartTime = nil;
     
     [self startMetronomeWithBPM:self.BPM];
     
     [self.metronomeGenerator setup:440];
-    
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

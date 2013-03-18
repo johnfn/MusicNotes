@@ -82,19 +82,25 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    int index = [self.tableView indexPathForSelectedRow].row;
-    Song *song = [self.songs objectAtIndex:index];
-
-    SequencerViewController *newController = (SequencerViewController*)segue.destinationViewController;
-
-    newController.loadedSong = song;
+    NSLog(@"Preparing!");
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"!");
     // Navigation logic may go here. Create and push another view controller.
+    NSArray *controllers = [[self navigationController] viewControllers];
+    SequencerViewController* nextvc = [controllers objectAtIndex:controllers.count - 2];
+
+    [self.navigationController popViewControllerAnimated:NO];
+
+
+    int index = [self.tableView indexPathForSelectedRow].row;
+    Song *song = [self.songs objectAtIndex:index];
+
+    nextvc.loadedSong = song;
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...

@@ -160,6 +160,8 @@
             [self.sequence turnOnNote:i y:freq];
         }
     }
+    
+    [self setNeedsDisplay];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -177,6 +179,8 @@
             [self drawNote:rect dest:dest color:color];
         }
     }
+    
+    [self setNeedsDisplay];
 }
 
 - (void)drawNote:(CGRect)rect dest:(CGRect)dest color:(UIColor*)color {
