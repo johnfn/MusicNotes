@@ -116,6 +116,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     NSArray *sortedArray = [self.keys sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         CGFloat first  = [((UIButton*) a) frame].origin.y;
@@ -132,7 +133,6 @@
     
     for (int i = 0; i < sortedArray.count; i++) {
         UIButton *btn = [sortedArray objectAtIndex:i];
-        [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
         
         [btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchDown];
         //[btn addTarget:self action:@selector(pressKey:) forControlEvents:UIControlEventTouchDragEnter];

@@ -13,7 +13,9 @@
 #import "DocumentManager.h"
 
 @interface SequencerViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet SequencerView *scrollView;
+@property (nonatomic) bool unsavedChanges;
 @end
 
 @implementation SequencerViewController
@@ -25,6 +27,16 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
     }
     return self;
+}
+
+- (void)setUnsavedChanges:(bool)unsavedChanges {
+    if (unsavedChanges) {
+        [self.saveButton setTitle:@"Save*" forState:UIControlStateNormal];
+    } else {
+        [self.saveButton setTitle:@"Save" forState:UIControlStateNormal];
+    }
+    
+    _unsavedChanges = unsavedChanges;
 }
 
 - (void)viewDidLoad
@@ -62,23 +74,25 @@
 }
 
 - (IBAction)saveButton:(UIButton *)sender {
+    self.unsavedChanges = false;
     [self.scrollView save];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scrollView addGestureRecognizer:singleTap];
 
     [self.scrollView clear];
 
+    self.unsavedChanges = false;
 
-    // Use this to load the song.
-    //+ (NSArray*)allSongsWithName:(UIManagedDocument*)document name:(NSString*)name;
-
+    // Load overdub data, if there is any.
     if (self.noteData) {
         [self.scrollView loadData:self.noteData];
         self.noteData = nil;
+        self.unsavedChanges = true;
     }
     
     [DocumentManager withDocumentDo:^(UIManagedDocument* document){
@@ -91,12 +105,14 @@
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture {
     CGPoint touchPoint= [gesture locationInView:self.scrollView];
     [self.scrollView receiveTap:touchPoint];
+
+    // Admittedly this is a bit extreme.
+    self.unsavedChanges = true;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
