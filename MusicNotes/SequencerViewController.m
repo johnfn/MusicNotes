@@ -71,15 +71,21 @@
     [self.scrollView addGestureRecognizer:singleTap];
 
     [self.scrollView clear];
+
+
+    // Use this to load the song.
+    //+ (NSArray*)allSongsWithName:(UIManagedDocument*)document name:(NSString*)name;
+
     if (self.noteData) {
         [self.scrollView loadData:self.noteData];
         self.noteData = nil;
-    } else if (self.loadedSong) {
-        [Settings setTitle:self.loadedSong.title];
-        [Settings setBPM:[self.loadedSong.bpm intValue]];
-        [self.scrollView loadData:[self.loadedSong toNoteData]];
-        self.loadedSong = nil;
     }
+    
+    [DocumentManager withDocumentDo:^(UIManagedDocument* document){
+        NSArray *songs = [Song allSongsWithName:document name:[Settings getTitle]];
+        [self.scrollView loadData:[songs[0] toNoteData]];
+    }];
+
 }
 
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture {

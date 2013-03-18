@@ -11,6 +11,7 @@
 
 @interface Song (Extension)
 
++ (NSArray*)allSongsWithName:(UIManagedDocument*)document name:(NSString*)name;
 + (void)saveSequence:(UIManagedDocument*)document seq:(Sequence*)sequence;
 + (NSArray*)allSongs:(UIManagedDocument*)document;
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 johnfn. All rights reserved.
 //
 
+#import "Settings.h"
 #import "LoadViewController.h"
 #import "Song+Extension.h"
 #import "DocumentManager.h"
@@ -87,20 +88,15 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"!");
-    // Navigation logic may go here. Create and push another view controller.
-    NSArray *controllers = [[self navigationController] viewControllers];
-    SequencerViewController* nextvc = [controllers objectAtIndex:controllers.count - 2];
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.navigationController popViewControllerAnimated:NO];
-
 
     int index = [self.tableView indexPathForSelectedRow].row;
     Song *song = [self.songs objectAtIndex:index];
 
-    nextvc.loadedSong = song;
+    [Settings setTitle:song.title];
+    [Settings setBPM:[song.bpm intValue]];
+
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...

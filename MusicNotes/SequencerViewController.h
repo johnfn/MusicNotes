@@ -11,5 +11,4 @@
 
 @interface SequencerViewController : UIViewController
 @property (strong, nonatomic) NSMutableArray* noteData;
-@property (strong, nonatomic) Song* loadedSong;
 @end
