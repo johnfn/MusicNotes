@@ -75,9 +75,7 @@
     while (self.recordedSong.count <= beats) {
         [self.recordedSong addObject:[[NSMutableArray alloc] init]];
     }
-    
-    NSLog(@"%@", self.recordedSong);
-    
+
     NSMutableArray *arr = [self.recordedSong objectAtIndex:beats];
     [arr addObject:[NSNumber numberWithInt:toneIdx]];
 }
@@ -96,7 +94,6 @@
 
 
 - (IBAction)test:(UIButton *)sender {
-    NSLog(@"%f", [sender frame].origin.y);
 }
 
 - (void)finishMetronomeBeep {

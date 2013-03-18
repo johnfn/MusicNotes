@@ -16,6 +16,28 @@
 
 + (void)saveSequence:(UIManagedDocument *)document seq:(Sequence *)sequence {
     NSManagedObjectContext *context = document.managedObjectContext;
+    
+    // Attempt to find an older instance of the current song.
+    // If we succeed, remove it.
+
+    // This fetching code was inspired by the following StackOverflow link.
+    // http://stackoverflow.com/questions/1438587/fetch-object-by-property-in-core-data
+
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Song" inManagedObjectContext:context];
+    [request setEntity:entity];
+    // retrive the objects with a given value for a certain property
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"title == %@", [Settings getTitle]];
+    [request setPredicate:predicate];
+
+    NSError *error = nil;
+    NSArray *result = [context executeFetchRequest:request error:&error];
+
+    // Remove all old objects. (There should only be one.)
+    for (NSManagedObject *oldSong in result) {
+        [context deleteObject:oldSong];
+    }
+
     Song* newSong = [NSEntityDescription insertNewObjectForEntityForName:@"Song" inManagedObjectContext:context];
 
     newSong.title = [Settings getTitle];
