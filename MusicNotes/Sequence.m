@@ -98,6 +98,10 @@
 }
 
 - (void)clickOnNote:(int)x y:(int)y {
+    if (![self inBounds:x y:y]) {
+        return;
+    }
+    
     Note* note = [self getNoteAt:x y:y];
     note.willPlay = !note.willPlay;
 }
