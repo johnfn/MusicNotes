@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 johnfn. All rights reserved.
 //
 
+#import "Settings.h"
 #import "SequencerViewController.h"
 #import "SequencerView.h"
 #import "Song+Extension.h"
@@ -48,8 +49,9 @@
         NSLog(@"Load note data");
         [self.scrollView loadData:self.noteData];
         self.noteData = nil;
-    } else {
-        NSLog(@"Load file data");
+    } else if (self.loadedSong) {
+        [Settings setTitle:self.loadedSong.title];
+        [Settings setBPM:[self.loadedSong.bpm intValue]];
         [self.scrollView loadData:[self.loadedSong toNoteData]];
         self.loadedSong = nil;
     }

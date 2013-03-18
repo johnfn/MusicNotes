@@ -13,8 +13,9 @@
 
 @interface Song : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * modified;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * bpm;
 @property (nonatomic, retain) NSSet *notes;
 @end
 

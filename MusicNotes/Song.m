@@ -12,8 +12,9 @@
 
 @implementation Song
 
-@dynamic title;
 @dynamic modified;
+@dynamic title;
+@dynamic bpm;
 @dynamic notes;
 
 @end

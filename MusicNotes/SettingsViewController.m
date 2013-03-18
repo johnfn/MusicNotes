@@ -23,6 +23,7 @@
 }
 
 - (IBAction)changeSongTitle:(UITextField *)sender {
+    NSLog(@"You changed the title!");
     [Settings setTitle:sender.text];
 }
 

@@ -40,6 +40,7 @@
 }
 
 + (void)setTitle:(NSString *)title {
+    NSLog(@"Someone called setTitle");
     [Settings getSingleton].title = title;
 }
 

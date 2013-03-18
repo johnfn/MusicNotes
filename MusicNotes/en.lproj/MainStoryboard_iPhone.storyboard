@@ -343,7 +343,7 @@
             </objects>
             <point key="canvasLocation" x="81" y="-215"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="vfG-BL-9dn">
             <objects>
                 <viewController id="TKJ-xs-ysm" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -378,18 +378,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BS3-dp-T5D" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3Xn-7A-wC4"/>
-                            <constraint firstItem="BS3-dp-T5D" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="98" id="5cB-nI-qOg"/>
+                            <constraint firstItem="BS3-dp-T5D" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="29" id="3po-OA-xNr"/>
                             <constraint firstItem="ci1-5b-IKG" firstAttribute="top" secondItem="6NU-2F-TkY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AEY-Ar-zhi"/>
                             <constraint firstAttribute="trailing" secondItem="B1f-6q-Pls" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CBh-Wo-9wj"/>
                             <constraint firstAttribute="trailing" secondItem="ci1-5b-IKG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="POJ-ei-NdD"/>
                             <constraint firstItem="ci1-5b-IKG" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VDI-oQ-KD8"/>
-                            <constraint firstItem="ci1-5b-IKG" firstAttribute="centerY" secondItem="RUU-Aw-vCh" secondAttribute="centerY" type="default" id="aXZ-sy-TW3"/>
+                            <constraint firstItem="6NU-2F-TkY" firstAttribute="top" secondItem="RUU-Aw-vCh" secondAttribute="top" constant="95" id="YcD-Lb-Bce"/>
                             <constraint firstItem="B1f-6q-Pls" firstAttribute="top" secondItem="BS3-dp-T5D" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d8b-mY-f3C"/>
                             <constraint firstItem="B1f-6q-Pls" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kPj-Ik-D7x"/>
                             <constraint firstItem="6NU-2F-TkY" firstAttribute="leading" secondItem="RUU-Aw-vCh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lNi-Li-Cpo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Tcu-nI-RlD"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Tcu-nI-RlD"/>
                     <connections>
                         <outlet property="bpmLabel" destination="BS3-dp-T5D" id="iAN-30-glN"/>
                         <outlet property="bpmSliderObject" destination="B1f-6q-Pls" id="29y-Bx-ueZ"/>
@@ -556,8 +556,6 @@
         <class className="SequencerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SequencerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="rotationAction:" candidateClass="UIRotationGestureRecognizer"/>
-                <relationship kind="action" name="saveButton:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="SequencerView"/>
             </relationships>
         </class>

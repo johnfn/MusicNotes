@@ -42,6 +42,7 @@
 
     newSong.title = [Settings getTitle];
     newSong.modified = [NSDate date];
+    newSong.bpm = [NSNumber numberWithInt:[Settings getBPM]];
 
     NSMutableArray* notes = [sequence getAllNotes];
     
