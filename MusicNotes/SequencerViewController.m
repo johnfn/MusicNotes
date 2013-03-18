@@ -97,7 +97,9 @@
     
     [DocumentManager withDocumentDo:^(UIManagedDocument* document){
         NSArray *songs = [Song allSongsWithName:document name:[Settings getTitle]];
-        [self.scrollView loadData:[songs[0] toNoteData]];
+        if (songs.count > 0) {
+            [self.scrollView loadData:[songs[0] toNoteData]];
+        }
     }];
 
 }

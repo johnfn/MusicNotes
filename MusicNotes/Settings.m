@@ -21,7 +21,7 @@
     if (!settingsSingleton) {
         settingsSingleton = [[Settings alloc] init];
         settingsSingleton.BPM = 120;
-        settingsSingleton.title = @"[Unsaved Song]";
+        settingsSingleton.title = @"[Untitled Song]";
     }
 
     return settingsSingleton;
